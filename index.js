@@ -14,6 +14,7 @@ app.use(bodyParser.json());
 const port = 5500;
 
 const uri = "mongodb+srv://volunteerNetworkUser:Network11@cluster0.pf9xm.mongodb.net/volunteerNetwork?retryWrites=true&w=majority";
+
 const client = new MongoClient(uri, { useNewUrlParser: true, useUnifiedTopology: true });
 client.connect(err => {
     const events = client.db("volunteerNetwork").collection("events");
@@ -40,6 +41,7 @@ client.connect(err => {
                 console.log(result);
             })
     });
+
     app.get('/allUsers', (req, res) => {
         events.find({})
         .toArray((err, docs) => res.send(docs))
