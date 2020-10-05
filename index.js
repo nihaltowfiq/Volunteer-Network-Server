@@ -9,11 +9,9 @@ const app = express();
 app.use(cors());
 app.use(bodyParser.json());
 
-const info = { user: 'volunteerNetworkUser', pass: 'Network11', db: 'volunteerNetwork' };
+// const info = { user: 'volunteerNetworkUser', pass: 'Network11', db: 'volunteerNetwork' };
 
 const port = 5500;
-
-
 
 const uri = "mongodb+srv://volunteerNetworkUser:Network11@cluster0.pf9xm.mongodb.net/volunteerNetwork?retryWrites=true&w=majority";
 const client = new MongoClient(uri, { useNewUrlParser: true, useUnifiedTopology: true });
