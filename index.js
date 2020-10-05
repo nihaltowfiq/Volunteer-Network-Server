@@ -1,13 +1,13 @@
 const express = require('express');
 const MongoClient = require('mongodb').MongoClient;
 const ObjectId = require('mongodb').ObjectId;
-const bodyParse = require('body-parser');
+const bodyParser = require('body-parser');
 const cors = require('cors');
 
 const app = express();
 
 app.use(cors());
-app.use(bodyParse.json());
+app.use(bodyParser.json());
 
 const info = { user: 'volunteerNetworkUser', pass: 'Network11', db: 'volunteerNetwork' };
 
@@ -37,7 +37,7 @@ client.connect(err => {
 
     app.delete('/delete/:id', (req, res) => {
         events.deleteOne({ _id: ObjectId(req.params.id) })
-            .then( result => {
+            .then(result => {
                 res.send(result.deletedCount > 0)
                 console.log(result);
             })
