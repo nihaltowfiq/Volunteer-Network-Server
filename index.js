@@ -41,6 +41,10 @@ client.connect(err => {
                 res.send(result.deletedCount > 0)
                 console.log(result);
             })
+    });
+    app.get('/allUsers', (req, res) => {
+        events.find({})
+        .toArray((err, docs) => res.send(docs))
     })
 });
 
